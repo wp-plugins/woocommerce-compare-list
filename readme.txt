@@ -1,6 +1,6 @@
 === WooCommerce Compare List ===
 Contributors: madpixels, straightforward
-Donate link:
+Donate link: https://flattr.com/submit/auto?user_id=madpixels&url=http%3A%2F%2Fwordpress.org%2Fplugins%2Fwoocommerce-compare-list%2F&category=software&title=WooCommerce+Compare+List&description=WooCommerce+Compare+List+plugin+adds+ability+to+compare+some+products+of+your+WooCommerce+driven+shop.
 Tags: woocommerce, compare, compare products, product compare, compare page, compare list, seo
 Requires at least: 3.1
 Tested up to: 3.9
@@ -17,8 +17,9 @@ WooCommerce Compare List plugin adds ability to compare some products of your Wo
 == Installation ==
 
 1. Upload plugin to the `/wp-content/plugins/` directory
-1. Activate `WooCommerce Compare List` plugin through the 'Plugins' menu in WordPress
-1. Select compare page at Compare list tab of WooCommerce settings
+1. Activate **WooCommerce Compare List** plugin through the 'Plugins' menu in WordPress
+1. Go to WooCommerce settings page and open **Compare List** tab
+1. Select compare page, which will display comparison table
 
 == Changelog ==
 
