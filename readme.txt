@@ -21,6 +21,10 @@ WooCommerce Compare List plugin adds ability to compare some products of your Wo
 1. Go to WooCommerce settings page and open **Compare List** tab
 1. Select compare page, which will display comparison table
 
+== Screenshots ==
+
+1. Compare buttons at products catalog
+
 == Changelog ==
 
 = 1.0.0 =
