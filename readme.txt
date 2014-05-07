@@ -24,6 +24,7 @@ WooCommerce Compare List plugin adds ability to compare some products of your Wo
 == Screenshots ==
 
 1. Compare buttons at products catalog
+2. Compare buttons at single product page
 
 == Changelog ==
 
