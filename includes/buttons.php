@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) {
 // register action hooks
 add_action( 'woocommerce_before_shop_loop', 'wccm_register_add_compare_button_hook' );
 add_action( 'woocommerce_single_product_summary', 'wccm_add_single_product_compare_buttton', 35 );
-add_action( 'init', 'wccm_process_button_action' );
+add_action( 'template_redirect', 'wccm_process_button_action' );
 
 /**
  * Regsiters hooks to render compare buttons for catalog products and to
@@ -99,7 +99,7 @@ function wccm_add_single_product_compare_buttton() {
  * Processes buttons actions.
  *
  * @since 1.0.0
- * @action init
+ * @action template_redirect
  */
 function wccm_process_button_action() {
 	$action = filter_input( INPUT_GET, 'wccm' );
@@ -113,7 +113,11 @@ function wccm_process_button_action() {
 		case 'remove-from-list': wccm_remove_product_from_compare_list( $product_id ); break;
 	}
 
-	wp_redirect( add_query_arg( array( 'wccm' => false, 'pid' => false, 'nonce' => false ) ) );
+	$redirect = get_option( 'wccm_compare_page' ) == get_queried_object_id()
+		? wccm_get_compare_page_link( wccm_get_compare_list() )
+		: add_query_arg( array( 'wccm' => false, 'pid' => false, 'nonce' => false ) );
+
+	wp_redirect( $redirect );
 	exit;
 }
 
