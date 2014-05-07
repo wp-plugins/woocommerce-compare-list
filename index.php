@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WooCommerce Compare List
-Plugin URI:
+Plugin URI: http://wordpress.org/plugins/woocommerce-compare-list/
 Description: The plugin adds ability to compare some products of your WooCommerce driven shop.
 Version: 1.0.0
 Author: Madpixels
