@@ -20,9 +20,7 @@ The plugin adds a simple and easy to use and setup products compare feature. Com
 
 The plugin uses endpoints technique to build SEO friendly URLs for compare page. The compare page will have following URL:
 
->
-> **http://{yourdomain.name}/{compare-page-slug}/{endpoint-slug}/{product_id}-{product_id}-{product_id}-{etc}/**
->
+**http://{yourdomain.name}/{compare-page-slug}/{endpoint-slug}/{product_id}-{product_id}-{product_id}-{etc}/**
 
 This approach allows users to share their compare lists between their friends to help them choose a product.
 
