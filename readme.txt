@@ -4,7 +4,7 @@ Donate link: https://flattr.com/submit/auto?user_id=madpixels&url=http%3A%2F%2Fw
 Tags: woocommerce, compare, compare products, product compare, compare page, compare list, seo
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 

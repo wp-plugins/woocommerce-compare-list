@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Compare List
 Plugin URI: http://wordpress.org/plugins/woocommerce-compare-list/
 Description: The plugin adds ability to compare some products of your WooCommerce driven shop.
-Version: 1.1
+Version: 1.1.0
 Author: Madpixels
 Author URI: http://madpixels.net
 License: GPL v2.0 or later
@@ -45,7 +45,7 @@ register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
 /**
  * Launches plugin if WooCommerce is active.
  *
- * @since 1.1
+ * @since 1.1.0
  * @action plugins_loaded
  *
  * @return boolean TRUE if launched successfully, otherwise FALSE.
@@ -55,7 +55,7 @@ function wccm_launch() {
 		return false;
 	}
 
-	define( 'WCCM_VERISON', '1.1' );
+	define( 'WCCM_VERISON', '1.1.0' );
 
 	load_plugin_textdomain( 'wccm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
