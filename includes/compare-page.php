@@ -70,5 +70,5 @@ function wccm_render_compare_page( $content ) {
 		}
 	}
 
-	return wccm_compare_list_render( $list );
+	return $content . wccm_compare_list_render( $list );
 }
