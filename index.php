@@ -62,10 +62,13 @@ function wccm_launch() {
 	require_once 'includes/common.php';
 	if ( is_admin() ) {
 		require_once 'includes/settings.php';
-	} elseif ( intval( get_option( 'wccm_compare_page' ) ) > 0 ) {
-		require_once 'includes/buttons.php';
-		require_once 'includes/compare-page.php';
-		require_once 'includes/catalog.php';
+	} else {
+		require_once 'includes/shortcode.php';
+		if ( intval( get_option( 'wccm_compare_page' ) ) > 0 ) {
+			require_once 'includes/buttons.php';
+			require_once 'includes/compare-page.php';
+			require_once 'includes/catalog.php';
+		}
 	}
 
 	return true;

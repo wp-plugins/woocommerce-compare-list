@@ -28,34 +28,19 @@ if ( !defined( 'ABSPATH' ) ) {
 
 // register action hooks
 add_action( 'wp_enqueue_scripts', 'wccm_enqueue_compare_scripts' );
-
 // register filter hooks
 add_filter( 'the_content', 'wccm_render_compare_page' );
 
 /**
- * Enqueues scripts and styles.
+ * Enqueues scripts and styles for compare page.
  *
  * @since 1.0.0
  * @action wp_enqueue_scripts
- *
- * @global boolean $is_IE Determines whether or not the current user agent is Internet Explorer.
- * @global boolean $is_opera Determines whether or not the current user agent is Opera.
- * @global boolean $is_gecko Determines whether or not the current user agent is Gecko based.
  */
 function wccm_enqueue_compare_scripts() {
-	global $is_IE, $is_opera, $is_gecko;
-
 	if ( is_page() && get_option( 'wccm_compare_page' ) == get_queried_object_id() ) {
-		$base_path = plugins_url( '/', dirname( __FILE__ ) );
-		wp_enqueue_style( 'wccm-compare', $base_path . 'css/compare.css', array( 'dashicons' ), WCCM_VERISON );
-
-		wp_enqueue_script( 'wccm-compare', $base_path . 'js/compare.js', array( 'jquery' ), WCCM_VERISON );
-		wp_localize_script( 'wccm-compare', 'wccm', array(
-			'ie'      => $is_IE,
-			'gecko'   => $is_gecko,
-			'opera'   => $is_opera,
-			'cursors' => $base_path . 'cursors/',
-		) );
+		wp_enqueue_style( 'wccm-compare' );
+		wp_enqueue_script( 'wccm-compare' );
 	}
 }
 
@@ -85,106 +70,5 @@ function wccm_render_compare_page( $content ) {
 		}
 	}
 
-	$products = array();
-	foreach ( $list as $product_id ) {
-		$product = get_product( $product_id );
-		if ( $product ) {
-			$products[$product_id] = $product;
-		}
-	}
-
-	ob_start();
-
-	echo '<div class="wccm-compare-table">';
-		wccm_render_compare_header( $products );
-		wccm_render_compare_attributes( $products );
-	echo '</div>';
-
-	$content .= ob_get_contents();
-	ob_end_clean();
-
-	return $content;
-}
-
-/**
- * Renders compare table header.
- *
- * @since 1.0.0
- *
- * @param array $products The compare items list.
- */
-function wccm_render_compare_header( $products ) {
-	echo '<div class="wccm-thead">';
-		echo '<div class="wccm-tr">';
-			echo '<div class="wccm-th">';
-			echo '</div>';
-			echo '<div class="wccm-table-wrapper">';
-				echo '<table class="wccm-table" cellspacing="0" cellpadding="0" border="0">';
-					echo '<tr>';
-						foreach ( $products as $product_id => $product ) {
-							echo '<td class="wccm-td">';
-								echo '<div class="wccm-thumb">';
-									echo '<a class="dashicons dashicons-no" href="', wccm_get_compare_link( $product_id, 'remove-from-list' ), '"></a>';
-									echo get_the_post_thumbnail( $product_id, 'thumbnail' );
-								echo '</div>';
-								echo '<div>';
-									echo '<a href="', get_permalink( $product_id ), '">', $product->get_title(), '</a>';
-								echo '</div>';
-								echo '<div class="price">';
-									echo $product->get_price_html();
-								echo '</div>';
-							echo '</td>';
-						}
-					echo '<tr>';
-				echo '</table>';
-			echo '</div>';
-		echo '</div>';
-	echo '</div>';
-}
-
-/**
- * Renders compare table attributes.
- *
- * @since 1.0.0
- *
- * @param array $products The compare items list.
- */
-function wccm_render_compare_attributes( $products ) {
-	$attributes = array();
-	foreach ( $products as $product ) {
-		foreach ( $product->get_attributes() as $attribute_id => $attribute ) {
-			if ( !isset( $attributes[$attribute_id] ) ) {
-				$attributes[$attribute_id] = array(
-					'name'     => $attribute['name'],
-					'products' => array(),
-				);
-			}
-
-			$attributes[$attribute_id]['products'][$product->id] = $attribute['is_taxonomy']
-				? wc_get_product_terms( $product->id, $attribute['name'], array( 'fields' => 'names' ) )
-				: array_map( 'trim', explode( WC_DELIMITER, $attribute['value'] ) );
-		}
-	}
-
-	echo '<div class="wccm-tbody">';
-		foreach ( $attributes as $attribute ) {
-			echo '<div class="wccm-tr">';
-				echo '<div class="wccm-th">';
-					echo wc_attribute_label( $attribute['name'] );
-				echo '</div>';
-				echo '<div class="wccm-table-wrapper">';
-					echo '<table class="wccm-table" cellspacing="0" cellpadding="0" border="0">';
-						echo '<tr>';
-							foreach ( $products as $product ) {
-								echo '<td class="wccm-td">';
-									$values = !empty( $attribute['products'][$product->id] ) ? $attribute['products'][$product->id] : array( '&#8212;' );
-									echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
-								echo '</td>';
-							}
-						echo '</tr>';
-					echo '</table>';
-				echo '</div>';
-			echo '</div>';
-		}
-	echo '</div>';
+	return wccm_compare_list_render( $list );
 }

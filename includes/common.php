@@ -27,7 +27,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 // register action hooks
-add_action( 'init', 'wccm_register_endpoint' );
+add_action( 'init', 'wccm_setup_plugin' );
 // register filter hooks
 add_filter( 'query_vars', 'wccm_register_endpoint_var' );
 
@@ -43,12 +43,33 @@ function wccm_get_endpoint() {
 }
 
 /**
- * Registers page endpoint.
+ * Registers scripts, styles and page endpoint.
  *
- * @since 1.0.0
+ * @since 1.1
  * @action init
+ *
+ * @global boolean $is_IE Determines whether or not the current user agent is Internet Explorer.
+ * @global boolean $is_opera Determines whether or not the current user agent is Opera.
+ * @global boolean $is_gecko Determines whether or not the current user agent is Gecko based.
  */
-function wccm_register_endpoint() {
+function wccm_setup_plugin() {
+	global $is_IE, $is_opera, $is_gecko;
+
+	// register scripts and styles
+	if ( !is_admin() ) {
+		$base_path = plugins_url( '/', dirname( __FILE__ ) );
+		wp_register_style( 'wccm-compare', $base_path . 'css/compare.css', array( 'dashicons' ), WCCM_VERISON );
+
+		wp_register_script( 'wccm-compare', $base_path . 'js/compare.js', array( 'jquery' ), WCCM_VERISON );
+		wp_localize_script( 'wccm-compare', 'wccm', array(
+			'ie'      => $is_IE,
+			'gecko'   => $is_gecko,
+			'opera'   => $is_opera,
+			'cursors' => $base_path . 'cursors/',
+		) );
+	}
+
+	// setup endpoint
 	add_rewrite_endpoint( wccm_get_endpoint(), EP_PAGES );
 }
 

@@ -2,7 +2,7 @@
 Contributors: madpixels
 Donate link: https://flattr.com/submit/auto?user_id=madpixels&url=http%3A%2F%2Fwordpress.org%2Fplugins%2Fwoocommerce-compare-list%2F&category=software&title=WooCommerce+Compare+List&description=WooCommerce+Compare+List+plugin+adds+ability+to+compare+some+products+of+your+WooCommerce+driven+shop.
 Tags: woocommerce, compare, compare products, product compare, compare page, compare list, seo
-Requires at least: 3.1
+Requires at least: 3.6
 Tested up to: 3.9.1
 Stable tag: 1.0.0
 License: GPLv2 or later
@@ -23,6 +23,12 @@ The plugin uses endpoints technique to build SEO friendly URLs for compare page.
 **http://{yourdomain.name}/{compare-page-slug}/{endpoint-slug}/{product_id}-{product_id}-{product_id}-{etc}/**
 
 This approach allows users to share their compare lists between their friends to help them choose a product.
+
+### Use shortcode ###
+
+You can use **[products-compare ids="..." atts="..."]** shortcode to embed compare table into your posts or pages. It will give you ability to write neat product review stories where you can compare different products.
+
+Use **ids** attribute to enter comma/space separated list of products id, which should be displayed in the compare table. The **atts** attribute allows you to filter attributes list which should be displayed in the table. Enter comma separated list of attribute slugs which you can find at product attributes page.
 
 ### Configuration ###
 
@@ -54,6 +60,10 @@ After you install the plugin, you need to go to WooCommerce settings page. The n
 2. Compare buttons at single product page
 
 == Changelog ==
+
+= 1.1 =
+
+* Implemented [products-compare ids="..." atts="..."] shortcode.
 
 = 1.0.0 =
 
