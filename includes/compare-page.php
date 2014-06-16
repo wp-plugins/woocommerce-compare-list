@@ -28,6 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 // register action hooks
 add_action( 'wp_enqueue_scripts', 'wccm_enqueue_compare_scripts' );
+add_action( 'template_redirect', 'wccm_set_compare_page_cookie' );
 // register filter hooks
 add_filter( 'the_content', 'wccm_render_compare_page' );
 
@@ -41,6 +42,37 @@ function wccm_enqueue_compare_scripts() {
 	if ( is_page() && get_option( 'wccm_compare_page' ) == get_queried_object_id() ) {
 		wp_enqueue_style( 'wccm-compare' );
 		wp_enqueue_script( 'wccm-compare' );
+	}
+}
+
+/**
+ * Remembers compare page to show in the widget.
+ *
+ * @since 1.1.0
+ * @action template_redirect
+ */
+function wccm_set_compare_page_cookie() {
+	if ( is_page() && get_option( 'wccm_compare_page' ) == get_queried_object_id() ) {
+		$list = get_query_var( wccm_get_endpoint(), false );
+		if ( $list ) {
+			$parsed_list = array_filter( array_map( 'intval', explode( '-', $list ) ) );
+			if ( !empty( $parsed_list ) ) {
+				$cookie = isset( $_COOKIE['compare-lists'] ) ? explode( ',', $_COOKIE['compare-lists'] ) : array();
+				if ( in_array( $list, $cookie ) ) {
+					unset( $cookie[array_search( $list, $cookie )] );
+				}
+
+				array_unshift( $cookie, $list );
+				$value = implode( ',', array_slice( $cookie, 0, 5 ) );
+				$expire = current_time( 'timestamp', 1 ) + 30 * DAY_IN_SECONDS;
+				$path = parse_url( home_url(), PHP_URL_QUERY );
+				if ( !$path ) {
+					$path = '/';
+				}
+
+				setcookie( 'compare-lists', $value, $expire, $path );
+			}
+		}
 	}
 }
 

@@ -45,7 +45,7 @@ function wccm_get_endpoint() {
 /**
  * Registers scripts, styles and page endpoint.
  *
- * @since 1.1
+ * @since 1.1.0
  * @action init
  *
  * @global boolean $is_IE Determines whether or not the current user agent is Internet Explorer.

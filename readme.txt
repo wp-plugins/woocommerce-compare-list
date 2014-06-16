@@ -14,7 +14,7 @@ WooCommerce Compare List plugin adds ability to easily compare products of your 
 
 ### WooCommerce Compare List Plugin ###
 
-The plugin adds a simple and easy to use and setup products compare feature. Compared products are shown on front end as an aggregate table of all products attributes. Users will easily compare products and make their choice.
+The plugin adds a simple and easy to use and setup products compare feature. Compared products are shown on front end as an aggregate table of all products attributes. Users will easily compare products and make their choice. You can also use **products-compare** shortcode to embed compare tables and **WooCommerce Recent Compares** widget to help your users to get back to their compares.
 
 ### SEO friendly ###
 
@@ -64,6 +64,7 @@ After you install the plugin, you need to go to WooCommerce settings page. The n
 = 1.1 =
 
 * Implemented [products-compare ids="..." atts="..."] shortcode.
+* Implemented **Recent Compares** widget.
 
 = 1.0.0 =
 

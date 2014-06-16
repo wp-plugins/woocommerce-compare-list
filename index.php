@@ -60,6 +60,7 @@ function wccm_launch() {
 	load_plugin_textdomain( 'wccm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 	require_once 'includes/common.php';
+	require_once 'includes/widget.php';
 	if ( is_admin() ) {
 		require_once 'includes/settings.php';
 	} else {

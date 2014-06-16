@@ -34,7 +34,7 @@ add_shortcode( 'products-compare', 'wccm_compare_shortcode' );
 /**
  * Enqueues scripts and styles for shortcode.
  *
- * @since 1.1
+ * @since 1.1.0
  * @action wp_enqueue_scripts
  */
 function wccm_enqueue_shortcode_scripts() {
@@ -50,7 +50,7 @@ function wccm_enqueue_shortcode_scripts() {
 /**
  * Renders compare list shortcode.
  *
- * @since 1.1
+ * @since 1.1.0
  * @shortcode products-compare
  *
  * @param array $atts The array of shortcode attributes.
@@ -71,7 +71,7 @@ function wccm_compare_shortcode( $atts, $content = '' ) {
 /**
  * Renders compare list table.
  *
- * @since 1.1
+ * @since 1.1.0
  *
  * @param array $list The array of compare products.
  * @param array $attributes The array of attributes to show in the table.
@@ -103,7 +103,7 @@ function wccm_compare_list_render( $list, $attributes = array() ) {
 /**
  * Renders compare table header.
  *
- * @since 1.1
+ * @since 1.1.0
  *
  * @param array $products The compare items list.
  */
@@ -139,7 +139,7 @@ function wccm_compare_list_render_header( $products ) {
 /**
  * Renders compare table attributes.
  *
- * @since 1.1
+ * @since 1.1.0
  *
  * @param array $products The compare items list.
  * @param array $selected_attributes The array of attributes to show in the table.

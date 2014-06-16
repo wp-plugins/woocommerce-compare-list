@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Compare List\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-16 08:47+0300\n"
-"PO-Revision-Date: 2014-06-16 08:47+0300\n"
+"POT-Creation-Date: 2014-06-16 13:15+0300\n"
+"PO-Revision-Date: 2014-06-16 13:15+0300\n"
 "Last-Translator: Eugene Manuilov <eugene@manuilov.org>\n"
 "Language-Team: MadPixels <contact@madpixels.net>\n"
 "Language: en_US\n"
@@ -19,6 +19,30 @@ msgstr ""
 "X-Poedit-Basepath: ./../\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: includes/widget.php:57
+msgid "WooCommerce Recent Compares"
+msgstr "WooCommerce Recent Compares"
+
+#: includes/widget.php:58
+msgid "Shows a list of user most recent compares on your site."
+msgstr "Shows a list of user most recent compares on your site."
+
+#: includes/widget.php:75
+msgid "Title:"
+msgstr "Title:"
+
+#: includes/widget.php:78
+msgid "Thumbnails Width:"
+msgstr "Thumbnails Width:"
+
+#: includes/widget.php:81
+msgid "Thumbnails Height:"
+msgstr "Thumbnails Height:"
+
+#: includes/widget.php:108
+msgid "Recent Compares"
+msgstr "Recent Compares"
 
 #: includes/catalog.php:77 includes/buttons.php:78 includes/settings.php:90
 msgid "Compare"
@@ -36,7 +60,7 @@ msgstr "Remove compare"
 msgid "View compare"
 msgstr "View compare"
 
-#: includes/compare-page.php:84
+#: includes/compare-page.php:101
 msgid "No products found to compare."
 msgstr "No products found to compare."
 
