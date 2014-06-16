@@ -47,9 +47,9 @@ function wccm_enqueue_compare_scripts() {
 
 	if ( is_page() && get_option( 'wccm_compare_page' ) == get_queried_object_id() ) {
 		$base_path = plugins_url( '/', dirname( __FILE__ ) );
-		wp_enqueue_style( 'wccm-compare', $base_path . 'css/compare.css', array( 'dashicons' ), '1.0.0' );
+		wp_enqueue_style( 'wccm-compare', $base_path . 'css/compare.css', array( 'dashicons' ), WCCM_VERISON );
 
-		wp_enqueue_script( 'wccm-compare', $base_path . 'js/compare.js', array( 'jquery' ), '1.0.0' );
+		wp_enqueue_script( 'wccm-compare', $base_path . 'js/compare.js', array( 'jquery' ), WCCM_VERISON );
 		wp_localize_script( 'wccm-compare', 'wccm', array(
 			'ie'      => $is_IE,
 			'gecko'   => $is_gecko,

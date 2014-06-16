@@ -27,21 +27,9 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 // register action hooks
-add_action( 'plugins_loaded', 'wccm_load_textdomain' );
 add_action( 'init', 'wccm_register_endpoint' );
-
 // register filter hooks
 add_filter( 'query_vars', 'wccm_register_endpoint_var' );
-
-/**
- * Loads plugin text domain and translations.
- *
- * @since 1.0.0
- * @action plugins_loaded
- */
-function wccm_load_textdomain() {
-	load_plugin_textdomain( 'wccm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
 
 /**
  * Returns endpoint slug for compare page.

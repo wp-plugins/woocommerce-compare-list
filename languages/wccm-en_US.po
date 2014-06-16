@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Compare List\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-25 14:05+0300\n"
-"PO-Revision-Date: 2014-04-25 14:05+0300\n"
+"POT-Creation-Date: 2014-06-16 08:47+0300\n"
+"PO-Revision-Date: 2014-06-16 08:47+0300\n"
 "Last-Translator: Eugene Manuilov <eugene@manuilov.org>\n"
 "Language-Team: MadPixels <contact@madpixels.net>\n"
 "Language: en_US\n"
@@ -20,15 +20,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/buttons.php:71 includes/settings.php:90
-msgid "Remove compare"
-msgstr "Remove compare"
-
-#: includes/buttons.php:74 includes/settings.php:82
+#: includes/catalog.php:77 includes/buttons.php:78 includes/settings.php:90
 msgid "Compare"
 msgstr "Compare"
 
-#: includes/compare-page.php:64
+#: includes/catalog.php:81
+msgid "Cancel"
+msgstr "Cancel"
+
+#: includes/buttons.php:71 includes/settings.php:98
+msgid "Remove compare"
+msgstr "Remove compare"
+
+#: includes/buttons.php:74
+msgid "View compare"
+msgstr "View compare"
+
+#: includes/compare-page.php:84
 msgid "No products found to compare."
 msgstr "No products found to compare."
 
@@ -61,21 +69,33 @@ msgid "Enable compare functionality for single product page."
 msgstr "Enable compare functionality for single product page."
 
 #: includes/settings.php:80
+msgid "Endpoint Slug"
+msgstr "Endpoint Slug"
+
+#: includes/settings.php:81
+msgid "Enter text which will be used as endpoint for compare page."
+msgstr "Enter text which will be used as endpoint for compare page."
+
+#: includes/settings.php:82 includes/common.php:42
+msgid "products"
+msgstr "products"
+
+#: includes/settings.php:88
 msgid "Compare button text"
 msgstr "Compare button text"
 
-#: includes/settings.php:81
+#: includes/settings.php:89
 msgid "Enter text which will be displayed on the add to compare button."
 msgstr "Enter text which will be displayed on the add to compare button."
 
-#: includes/settings.php:88
+#: includes/settings.php:96
 msgid "Remove button text"
 msgstr "Remove button text"
 
-#: includes/settings.php:89
+#: includes/settings.php:97
 msgid "Enter text which will be displayed on the remove from compare button."
 msgstr "Enter text which will be displayed on the remove from compare button."
 
-#: includes/settings.php:120
+#: includes/settings.php:128
 msgid "Compare List"
 msgstr "Compare List"

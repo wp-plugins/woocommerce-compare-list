@@ -40,7 +40,7 @@ function wccm_enqueue_catalog_scripts() {
 	if ( is_post_type_archive( 'product' ) || is_tax( 'product_cat' ) ) {
 		if ( wccm_show_in_catalog() ) {
 			$base_path = plugins_url( '/', dirname( __FILE__ ) );
-			wp_enqueue_style( 'wccm-catalog', $base_path . 'css/catalog.css', array( 'dashicons' ), '1.0.0' );
+			wp_enqueue_style( 'wccm-catalog', $base_path . 'css/catalog.css', array( 'dashicons' ), WCCM_VERISON );
 		}
 	}
 }
