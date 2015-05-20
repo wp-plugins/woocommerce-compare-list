@@ -1,6 +1,5 @@
 === WooCommerce Compare List ===
-Contributors: madpixels
-Donate link: https://flattr.com/submit/auto?user_id=madpixels&url=http%3A%2F%2Fwordpress.org%2Fplugins%2Fwoocommerce-compare-list%2F&category=software&title=WooCommerce+Compare+List&description=WooCommerce+Compare+List+plugin+adds+ability+to+compare+some+products+of+your+WooCommerce+driven+shop.
+Contributors: themeisle
 Tags: woocommerce, compare, compare products, product compare, compare page, compare list, seo
 Requires at least: 3.6
 Tested up to: 3.9.1
